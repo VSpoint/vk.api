@@ -135,7 +135,9 @@ class Vk{
         if( $curl = curl_init() ) {
 
             curl_setopt($curl, CURLOPT_URL, $param['scheme'].'://'.$param['host'].$param['path']);
+            curl_setopt($curl, CURLOPT_HEADER, false);//+my
             curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//+my
             curl_setopt($curl, CURLOPT_POST, true);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $param['query']);
             $out = curl_exec($curl);
